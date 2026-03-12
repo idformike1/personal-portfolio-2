@@ -6,22 +6,26 @@ import { initCursor } from './modules/cursor';
 import { initMagnetic } from './modules/animations';
 import { initHoverPreview } from './modules/hoverPreview';
 import { initMarquee } from './modules/marquee';
+import { initRouter } from './modules/router';
 
 const initApp = async () => {
     try {
-        console.log('Architectural Re-Initialization (Blueprint v2)...');
+        console.log('Architectural Re-Initialization (Blueprint v3)...');
         
         // 1. Core Engine
         const lenis = initScroll();
 
-        // 2. Content & Interactivity
+        // 2. Routing & Content
+        initRouter(lenis);
+        
+        // Initial manual trigger for first load
         await initWorkGrid();
         initCursor();
         initHoverPreview();
         initMagnetic();
         initMarquee();
 
-        // 3. Master Animation Timeline (Starting with Preloader)
+        // 3. Master Animation Timeline
         initLoader();
 
     } catch (error) {
