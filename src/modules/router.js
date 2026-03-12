@@ -1,24 +1,25 @@
 import barba from '@barba/core';
+import gsap from 'gsap';
 import { initWorkGrid } from '../components/workGrid';
 import { initMarquee } from './marquee';
 
 export const initRouter = (lenis) => {
     barba.init({
         transitions: [{
-            name: 'opacity-transition',
-            leave(data) {
-                return gsap.to(data.current.container, {
+            name: 'default-transition',
+            async leave(data) {
+                await gsap.to(data.current.container, {
                     opacity: 0,
-                    duration: 0.5
+                    duration: 0.5,
+                    ease: 'power2.inOut'
                 });
             },
-            enter(data) {
-                // Scroll to top on page change
+            async enter(data) {
                 lenis.scrollTo(0, { immediate: true });
-                
-                return gsap.from(data.next.container, {
+                await gsap.from(data.next.container, {
                     opacity: 0,
-                    duration: 0.5
+                    duration: 0.5,
+                    ease: 'power2.inOut'
                 });
             }
         }],
@@ -26,6 +27,7 @@ export const initRouter = (lenis) => {
             {
                 namespace: 'home',
                 beforeEnter() {
+                    console.log('Router: Entering Home');
                     initWorkGrid();
                     initMarquee();
                 }
@@ -33,31 +35,27 @@ export const initRouter = (lenis) => {
             {
                 namespace: 'work',
                 beforeEnter() {
-                    // Logic for work page
-                    const container = document.querySelector('[data-barba="container"]');
-                    container.innerHTML = '<h1>Work</h1><div id="work-list"></div>';
+                    console.log('Router: Entering Work');
                     initWorkGrid();
                 }
             },
             {
                 namespace: 'about',
                 beforeEnter() {
-                    const container = document.querySelector('[data-barba="container"]');
-                    container.innerHTML = '<h1>About</h1><p>Dennis Snellenberg is a freelance designer & developer.</p>';
+                    console.log('Router: Entering About');
                 }
             },
             {
                 namespace: 'contact',
                 beforeEnter() {
-                    const container = document.querySelector('[data-barba="container"]');
-                    container.innerHTML = '<h1>Contact</h1><p>Let\'s work together.</p>';
+                    console.log('Router: Entering Contact');
                 }
             }
         ]
     });
 
-    // Update Lenis on transition
     barba.hooks.after(() => {
         lenis.resize();
+        // Re-initialize any global interactions if needed
     });
 };
