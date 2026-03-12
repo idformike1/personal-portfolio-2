@@ -25,8 +25,11 @@ const initApp = async () => {
         initMagnetic();
         initMarquee();
 
-        // 3. Master Animation Timeline
-        initLoader();
+        // 3. Master Animation Timeline (Starting with Preloader)
+        const loader = initLoader();
+        
+        // Ensure reveal even if namespaces differ (Blueprint v4.3)
+        loader.play();
 
     } catch (error) {
         console.error('Critical initialization error:', error);
