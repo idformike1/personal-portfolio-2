@@ -9,18 +9,24 @@ import { initMagnetic } from './modules/animations';
 console.log('Dennis Snellenberg Portfolio Clone Initialized');
 
 const initApp = async () => {
-    // 1. Initialize Content
-    await initWorkGrid();
+    try {
+        console.log('Initializing Application...');
+        
+        // 1. Initialize Content
+        await initWorkGrid().catch(err => console.warn('Work grid failed to load. Continuing...', err));
 
-    // 2. Initialize Scroll
-    initScroll();
+        // 2. Initialize Scroll
+        initScroll();
 
-    // 3. Initialize Loader
-    initLoader();
+        // 3. Initialize Loader
+        initLoader();
 
-    // 4. Initialize Interactivity
-    initCursor();
-    initMagnetic();
+        // 4. Initialize Interactivity
+        initCursor();
+        initMagnetic();
+    } catch (error) {
+        console.error('Critical initialization error:', error);
+    }
 };
 
 document.addEventListener('DOMContentLoaded', initApp);
