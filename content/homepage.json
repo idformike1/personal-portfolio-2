@@ -1,0 +1,16 @@
+{
+  "hero": {
+    "title": "Dennis Snellenberg",
+    "location": "Utrecht, Netherlands",
+    "services": ["Design", "Development"]
+  },
+  "about": {
+    "title": "Helping brands to stand out in the digital age.",
+    "description": "Together we will set the new status quo. No nonsense, always on the cutting edge."
+  },
+  "footer": {
+    "cta": "Let's work together",
+    "email": "dennis@snellenberg.nl",
+    "phone": "+31 6 27 84 74 30"
+  }
+}

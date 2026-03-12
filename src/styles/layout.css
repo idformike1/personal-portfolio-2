@@ -1,0 +1,25 @@
+.main-container {
+  width: 100%;
+}
+
+[data-scroll-section] {
+  width: 100%;
+  position: relative;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4vw;
+}
+
+@media (max-width: 1024px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+}

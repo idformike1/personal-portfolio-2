@@ -1,0 +1,103 @@
+/* Navigation */
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 4vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  mix-blend-mode: difference;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+/* Hero Section */
+.home-header {
+  height: 100vh;
+  background-color: var(--color-bg-light);
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.6;
+}
+
+.hero-content {
+  position: relative;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.name-h1 {
+  font-size: clamp(5rem, 15vw, 15rem);
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+
+/* About Section */
+.home-about {
+  padding: 10rem 0;
+}
+
+.about-text p {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  line-height: 1.3;
+  max-width: 80%;
+}
+
+/* Work Grid */
+.work-grid {
+  padding-bottom: 10rem;
+}
+
+.work-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 4vw;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+.work-row:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.work-row h2 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 400;
+  transition: transform 0.4s ease;
+}
+
+.work-row .tags {
+  font-size: 1rem;
+  opacity: 0.6;
+}
+
+/* Custom Cursor Placeholder */
+.custom-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 999;
+}
