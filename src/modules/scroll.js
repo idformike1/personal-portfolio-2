@@ -5,7 +5,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export const initScroll = () => {
+    console.log('Initializing Lenis...', Lenis);
     const lenis = new Lenis({
+        autoRaf: true, // Let Lenis handle its own RAF if needed, or keep manual
         duration: 1.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         orientation: 'vertical',

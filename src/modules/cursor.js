@@ -5,6 +5,11 @@ export const initCursor = () => {
     const follower = document.querySelector('.cursor-follower');
     const view = document.querySelector('.cursor-view');
 
+    if (!cursor || !follower) {
+        console.warn('Cursor elements not found in DOM.');
+        return { updateState: () => {} };
+    }
+
     // State Mapping
     const states = {
         default: { scale: 1, opacity: 1, backgroundColor: 'white' },
