@@ -25,6 +25,8 @@
                 <h2 class="home-active">Bonjour</h2>
                 <h2 class="home-active">Ciao</h2>
                 <h2 class="home-active">Hallo</h2>
+                <h2 class="home-active">नमस्ते</h2>
+                <h2 class="home-active">こんにちは</h2>
             </div>
             <div class="rounded-div-wrap bottom"></div>
         </div>
@@ -46,31 +48,33 @@
     </nav>
 
     <!-- Main Content -->
-    <main data-barba="container" data-barba-namespace="home" data-scroll-container>
-        <section class="home-header" data-scroll-section>
-            <div class="hero-bg" style="background-image: url('assets/img/hero_bg.jpg');"></div>
-            <div class="hero-content">
-                <h1 class="name-h1" data-scroll data-scroll-speed="4" data-scroll-direction="horizontal">
-                    Dennis Snellenberg —
-                </h1>
-            </div>
-        </section>
+    <div data-scroll-container>
+        <main data-barba="container" data-barba-namespace="home">
+            <section class="home-header">
+                <div class="hero-bg" style="background-image: url('/assets/img/hero_bg.jpg');"></div>
+                <div class="hero-content">
+                    <h1 class="name-h1">
+                        Dennis Snellenberg —
+                    </h1>
+                </div>
+            </section>
 
-        <section class="home-about" data-scroll-section>
-            <div class="container">
-                <div class="about-flex">
-                    <div class="about-text">
-                        <p class="reveal-text">Helping brands to stand out in the digital age. Together we will set the new status quo.</p>
+            <section class="home-about">
+                <div class="container">
+                    <div class="about-flex">
+                        <div class="about-text">
+                            <p class="reveal-text">Helping brands to stand out in the digital age. Together we will set the new status quo.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Dynamic Content injected by JS -->
-        <section class="work-grid" data-scroll-section id="work"></section>
+            <!-- Dynamic Content injected by JS -->
+            <section class="work-grid" id="work"></section>
 
-        <footer class="footer" data-scroll-section></footer>
-    </main>
+            <footer class="footer"></footer>
+        </main>
+    </div>
 
     <script type="module" src="/src/main.js"></script>
 </body>

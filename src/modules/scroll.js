@@ -1,32 +1,32 @@
-import LocomotiveScroll from 'locomotive-scroll';
+import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const initScroll = () => {
-    const scroller = new LocomotiveScroll({
-        el: document.querySelector('[data-scroll-container]'),
-        smooth: true,
-        multiplier: 1,
-        getDirection: true,
-        reloadOnContextChange: true
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        smoothTouch: false,
+        touchMultiplier: 2,
+        infinite: false,
     });
 
-    scroller.on('scroll', ScrollTrigger.update);
+    lenis.on('scroll', ScrollTrigger.update);
 
-    ScrollTrigger.scrollerProxy('[data-scroll-container]', {
-        scrollTop(value) {
-            return arguments.length ? scroller.scrollTo(value, 0, 0) : scroller.scroll.instance.scroll.y;
-        },
-        getBoundingClientRect() {
-            return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-        },
-        pinType: document.querySelector('[data-scroll-container]').style.transform ? "transform" : "fixed"
+    gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
     });
 
-    ScrollTrigger.addEventListener('refresh', () => scroller.update());
-    ScrollTrigger.refresh();
+    gsap.ticker.lagSmoothing(0);
 
-    return scroller;
+    // Optional: Connect to ScrollTrigger if needed for specific triggers
+    // But for Lenis, we usually just need the RAF sync.
+
+    return lenis;
 };

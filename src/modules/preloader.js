@@ -1,40 +1,66 @@
 import gsap from 'gsap';
 
 export const initLoader = () => {
-    const tl = gsap.timeline();
+    const tl = gsap.timeline({
+        onComplete: () => {
+            document.body.classList.remove('loading');
+            gsap.set('.loading-container', { display: 'none' });
+        }
+    });
+
     const words = document.querySelectorAll('.loading-words h2');
     
-    tl.set('.loading-container', { display: 'flex' });
-    tl.set(words, { opacity: 0, y: 20 });
+    // Initial State
+    gsap.set(words, { opacity: 0, scale: 0.8 });
+    gsap.set('.loading-screen', { yPercent: 0 });
 
+    // 1. Language Sequence
     words.forEach((word, index) => {
         tl.to(word, {
             opacity: 1,
-            y: 0,
-            duration: 0.3,
+            scale: 1,
+            duration: 0.2,
             ease: 'power2.out'
         });
         tl.to(word, {
             opacity: 0,
-            y: -20,
-            duration: 0.3,
+            scale: 1.2,
+            duration: 0.2,
             ease: 'power2.in',
-            delay: 0.1
+            delay: 0.05
         });
     });
 
+    // 2. Wipe Exit Animation
     tl.to('.loading-screen', {
         yPercent: -100,
-        duration: 0.8,
+        duration: 1.2,
         ease: 'power4.inOut'
-    });
+    }, '+=0.2');
 
+    // 3. Curve Wrap effect (if elements exist)
+    if (document.querySelector('.rounded-div-wrap.bottom')) {
+        tl.to('.rounded-div-wrap.bottom', {
+            height: '0vh',
+            duration: 1.2,
+            ease: 'power4.inOut'
+        }, '<');
+    }
+
+    // 4. Master Reveal
     tl.from('.name-h1', {
-        y: 100,
+        y: 150,
+        opacity: 0,
+        duration: 1.23,
+        ease: 'power3.out'
+    }, '-=0.8');
+
+    tl.from('.nav-bar', {
+        y: -50,
         opacity: 0,
         duration: 1,
-        ease: 'power4.out'
-    }, "-=0.4");
+        ease: 'power3.out'
+    }, '-=1');
 
-    tl.set('.loading-container', { display: 'none' });
+    return tl;
 };
