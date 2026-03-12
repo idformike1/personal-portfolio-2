@@ -27,7 +27,7 @@ export const initRouter = (lenis) => {
             {
                 namespace: 'home',
                 beforeEnter() {
-                    console.log('Router: Entering Home');
+                    console.log('Router: Re-init Home');
                     initWorkGrid();
                     initMarquee();
                 }
@@ -35,20 +35,20 @@ export const initRouter = (lenis) => {
             {
                 namespace: 'work',
                 beforeEnter() {
-                    console.log('Router: Entering Work');
+                    console.log('Router: Re-init Work');
                     initWorkGrid();
                 }
             },
             {
                 namespace: 'about',
                 beforeEnter() {
-                    console.log('Router: Entering About');
+                    console.log('Router: Re-init About');
                 }
             },
             {
                 namespace: 'contact',
                 beforeEnter() {
-                    console.log('Router: Entering Contact');
+                    console.log('Router: Re-init Contact');
                 }
             }
         ]
@@ -56,6 +56,5 @@ export const initRouter = (lenis) => {
 
     barba.hooks.after(() => {
         lenis.resize();
-        // Re-initialize any global interactions if needed
     });
 };
