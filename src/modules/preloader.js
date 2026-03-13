@@ -3,8 +3,10 @@ import gsap from 'gsap';
 export const initLoader = () => {
     const tl = gsap.timeline({
         onComplete: () => {
-            document.body.classList.remove('loading', 'antigravity-scroll-lock');
-            document.documentElement.classList.remove('antigravity-scroll-lock');
+            console.log('Preloader: Complete. Unlocking interactions...');
+            document.body.classList.remove('loading', 'antigravity-scroll-lock', 'locked');
+            document.documentElement.classList.remove('antigravity-scroll-lock', 'locked');
+            document.body.style.overflow = 'auto'; // Force fallback
             gsap.set('.loading-container', { display: 'none' });
         }
     });
