@@ -7,7 +7,7 @@ export const initMarquee = () => {
     // Horizontal drift based on scroll
     gsap.to(marquee, {
         scrollTrigger: {
-            trigger: '.home-header',
+            trigger: '.hero',
             start: 'top top',
             end: 'bottom top',
             scrub: true

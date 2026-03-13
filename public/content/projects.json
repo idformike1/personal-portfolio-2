@@ -1,0 +1,30 @@
+[
+  {
+    "id": "twice",
+    "title": "TWICE",
+    "tags": ["Design", "Development"],
+    "year": "2024",
+    "thumbnail": "assets/img/twice_thumb.jpg"
+  },
+  {
+    "id": "the-damai",
+    "title": "The Damai",
+    "tags": ["Design", "Development"],
+    "year": "2023",
+    "thumbnail": "assets/img/hero_bg.jpg"
+  },
+  {
+    "id": "fabric",
+    "title": "FABRIC™",
+    "tags": ["Design", "Development"],
+    "year": "2023",
+    "thumbnail": "assets/img/hero_bg.jpg"
+  },
+  {
+    "id": "atypikal",
+    "title": "Atypikal",
+    "tags": ["Design", "Development"],
+    "year": "2023",
+    "thumbnail": "assets/img/hero_bg.jpg"
+  }
+]

@@ -10,6 +10,7 @@ import { initHoverPreview } from './controllers/hoverPreviewController';
 import { initScrollAnimations } from './controllers/scrollAnimationController';
 import { initRouter } from './controllers/pageTransitionController';
 import { initMagnetic } from './animations/animations';
+import { initMarquee } from './animations/marquee';
 
 document.addEventListener('DOMContentLoaded', () => {
     try {
@@ -23,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         initHoverPreview();
         initScrollAnimations();
         initMagnetic();
+        initMarquee();
         
         // Layer 3: Routing & Transitions
         initRouter();
