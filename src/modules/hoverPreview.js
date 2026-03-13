@@ -43,8 +43,12 @@ export const initHoverPreview = () => {
         const row = e.target.closest('.work-row');
         if (!row) return;
 
-        const imgUrl = row.getAttribute('data-img');
+        let imgUrl = row.getAttribute('data-img');
         if (imgUrl) {
+            // Ensure absolute path
+            if (!imgUrl.startsWith('/')) imgUrl = '/' + imgUrl;
+            
+            console.log('HoverPreview: Loading image', imgUrl);
             previewContainer.style.backgroundImage = `url(${imgUrl})`;
             previewContainer.style.backgroundSize = 'cover';
             previewContainer.style.backgroundPosition = 'center';
