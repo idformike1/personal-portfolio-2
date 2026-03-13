@@ -10,7 +10,11 @@
     <link rel="stylesheet" href="/src/styles/animations.css">
 </head>
 <body data-barba="wrapper">
-    <!-- Navigation -->
+    <div class="custom-cursor">
+        <div class="cursor-follower"></div>
+        <div class="cursor-view">PREVIEW</div>
+    </div>
+
     <nav class="nav-bar">
         <div class="nav-logo">
             <a href="/" class="magnetic">© Code by Dennis</a>
@@ -27,12 +31,16 @@
 
     <div data-scroll-container>
         <main data-barba="container" data-barba-namespace="contact">
-            <section class="contact-header" style="padding: 15rem 4vw;">
-                <h1 style="font-size: clamp(4rem, 10vw, 8rem);">Contact</h1>
-                <div style="margin-top: 4rem;">
-                    <a href="mailto:hello@dennissnellenberg.com" style="font-size: 3rem; text-decoration: none; color: inherit;">hello@dennissnellenberg.com</a>
-                </div>
+            <section class="contact-header" style="padding: 15rem 4vw 5rem;">
+                <h1 style="font-size: clamp(4rem, 10vw, 8rem); margin-bottom: 2rem;">Contact</h1>
+                <p style="opacity: 0.6; font-size: 1.2rem;">Helping brands to stand out in the digital age.</p>
             </section>
+            
+            <section class="contact-content" style="padding: 5rem 4vw;">
+                <p style="font-size: 2rem; max-width: 800px;">Let's create something meaningful together.</p>
+                <a href="mailto:hello@dennis.com" class="magnetic" style="font-size: 3rem; text-decoration: underline;">hello@dennis.com</a>
+            </section>
+            
             <footer class="footer"></footer>
         </main>
     </div>

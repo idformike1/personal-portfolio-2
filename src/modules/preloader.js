@@ -3,7 +3,8 @@ import gsap from 'gsap';
 export const initLoader = () => {
     const tl = gsap.timeline({
         onComplete: () => {
-            document.body.classList.remove('loading');
+            document.body.classList.remove('loading', 'antigravity-scroll-lock');
+            document.documentElement.classList.remove('antigravity-scroll-lock');
             gsap.set('.loading-container', { display: 'none' });
         }
     });
