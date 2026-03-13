@@ -1,5 +1,8 @@
 import barba from '@barba/core';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 import { initWorkGrid } from '../components/workGrid';
 import { initMarquee } from './marquee';
 import { initMagnetic, initReveals, initFooter } from './animations';

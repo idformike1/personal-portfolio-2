@@ -1,4 +1,7 @@
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const initReveals = () => {
     const revealElements = document.querySelectorAll('.reveal-text, .work-row');
