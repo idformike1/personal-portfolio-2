@@ -30,12 +30,11 @@ export const initHoverPreview = () => {
 
     window.addEventListener('mousemove', e => {
         // Offset to center the bubble and add some "liquid" lag
-        gsap.to({}, {
-            duration: 0.2,
-            onUpdate: () => {
-                xSetter(e.clientX - 200);
-                ySetter(e.clientY - 140);
-            }
+        gsap.to(previewContainer, {
+            x: e.clientX - 200, // Offset to center the bubble
+            y: e.clientY - 140, // Offset to center the bubble
+            duration: 0.6,
+            ease: 'power3.out'
         });
     });
 
@@ -56,19 +55,20 @@ export const initHoverPreview = () => {
             gsap.to(previewContainer, {
                 opacity: 1,
                 scale: 1,
-                duration: 0.5,
-                ease: 'power3.out'
+                duration: 0.4,
+                ease: 'power2.out'
             });
         }
     });
 
     document.addEventListener('mouseout', e => {
-        if (e.target.closest('.work-row')) {
+        const row = e.target.closest('.work-row');
+        if (row) {
             gsap.to(previewContainer, {
                 opacity: 0,
                 scale: 0.5,
                 duration: 0.3,
-                ease: 'power3.in'
+                ease: 'power2.in'
             });
         }
     });

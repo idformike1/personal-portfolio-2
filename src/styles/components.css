@@ -67,14 +67,30 @@
   font-weight: 400;
   line-height: 0.8;
   letter-spacing: -0.04em;
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
+    display: inline-block;
+    font-size: 15vw;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 0.9;
+    padding-left: 2vw;
+    will-change: transform;
 }
 
 .hero-subtext {
-  margin-top: auto;
-  transform: translate3d(0, 0, 0);
-  opacity: 0.8;
+    position: absolute;
+    bottom: 8vh;
+    right: 4vw;
+    text-align: right;
+    max-width: 300px;
+}
+
+}
+
+.hero-subtext p {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+    will-change: transform, opacity;
 }
 
 /* About Section */

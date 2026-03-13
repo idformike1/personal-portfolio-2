@@ -1,0 +1,25 @@
+{
+  "loaderTimeline": {
+    "stages": ["Greeting Sequence", "Curve Wipe", "Hero Reveal"],
+    "duration": 3.5
+  },
+  "heroRevealTimeline": {
+    "elements": [".name-h1", ".hero-subtext"],
+    "type": "transform-based-reveal"
+  },
+  "sectionRevealTimeline": {
+    "trigger": ".reveal-text",
+    "start": "top 85%",
+    "vars": { "y": 100, "opacity": 0, "skewY": 7 }
+  },
+  "footerTimeline": {
+    "trigger": ".footer",
+    "scrub": true,
+    "yPercent": -50
+  },
+  "marqueeTimeline": {
+    "trigger": ".hero-marquee",
+    "speed": 2,
+    "direction": "left"
+  }
+}
