@@ -49,9 +49,15 @@ export const initLoader = () => {
 
     // 4. Master Reveal
     tl.from('.name-h1', {
-        y: 150,
+        yPercent: 100,
+        duration: 1.2,
+        ease: 'power4.out'
+    }, '-=0.4');
+
+    tl.from('.hero-subtext p', {
+        y: 50,
         opacity: 0,
-        duration: 1.23,
+        duration: 1,
         ease: 'power3.out'
     }, '-=0.8');
 

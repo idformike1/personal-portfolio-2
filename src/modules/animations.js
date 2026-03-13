@@ -1,5 +1,39 @@
 import gsap from 'gsap';
 
+export const initReveals = () => {
+    const revealElements = document.querySelectorAll('.reveal-text, .work-row');
+    
+    revealElements.forEach((el) => {
+        gsap.from(el, {
+            scrollTrigger: {
+                trigger: el,
+                start: 'top 90%',
+                toggleActions: 'play none none none'
+            },
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out'
+        });
+    });
+};
+
+export const initFooter = () => {
+    const footer = document.querySelector('.footer');
+    if (!footer) return;
+
+    gsap.from(footer, {
+        scrollTrigger: {
+            trigger: footer,
+            start: 'top bottom',
+            end: 'bottom bottom',
+            scrub: true
+        },
+        yPercent: -50,
+        ease: 'none'
+    });
+};
+
 export const initMagnetic = () => {
     const magneticElements = document.querySelectorAll('.magnetic');
 

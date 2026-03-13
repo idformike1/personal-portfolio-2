@@ -3,14 +3,14 @@ import { initWorkGrid } from './components/workGrid';
 import { initScroll } from './modules/scroll';
 import { initLoader } from './modules/preloader';
 import { initCursor } from './modules/cursor';
-import { initMagnetic } from './modules/animations';
+import { initMagnetic, initReveals, initFooter } from './modules/animations';
 import { initHoverPreview } from './modules/hoverPreview';
 import { initMarquee } from './modules/marquee';
 import { initRouter } from './modules/router';
 
 const initApp = async () => {
     try {
-        console.log('Architectural Re-Initialization (Blueprint v3)...');
+        console.log('Architectural Re-Initialization (Blueprint v4.7)...');
         
         // 1. Core Engine
         const lenis = initScroll();
@@ -24,6 +24,8 @@ const initApp = async () => {
         initHoverPreview();
         initMagnetic();
         initMarquee();
+        initReveals();
+        initFooter();
 
         // 3. Master Animation Timeline (Starting with Preloader)
         const loader = initLoader();

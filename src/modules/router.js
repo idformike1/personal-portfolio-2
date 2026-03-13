@@ -2,8 +2,27 @@ import barba from '@barba/core';
 import gsap from 'gsap';
 import { initWorkGrid } from '../components/workGrid';
 import { initMarquee } from './marquee';
+import { initMagnetic, initReveals, initFooter } from './animations';
+import { initCursor } from './cursor';
+import { initHoverPreview } from './hoverPreview';
 
 export const initRouter = (lenis) => {
+    // Helper to refresh all layout-dependent components
+    const refreshComponents = async (namespace) => {
+        if (namespace === 'home' || namespace === 'work') {
+            await initWorkGrid();
+        }
+        initMarquee();
+        initCursor();
+        initHoverPreview();
+        initMagnetic();
+        initReveals();
+        initFooter();
+        
+        lenis.resize();
+        window.scrollTo(0, 0);
+    };
+
     barba.init({
         debug: true,
         transitions: [{
@@ -17,6 +36,7 @@ export const initRouter = (lenis) => {
             },
             async enter(data) {
                 lenis.scrollTo(0, { immediate: true });
+                await refreshComponents(data.next.namespace);
                 await gsap.from(data.next.container, {
                     opacity: 0,
                     duration: 0.5,
@@ -25,44 +45,15 @@ export const initRouter = (lenis) => {
             }
         }],
         views: [
-            {
-                namespace: 'home',
-                beforeEnter() {
-                    console.log('Barba: Entering Home');
-                    initWorkGrid();
-                    initMarquee();
-                }
-            },
-            {
-                namespace: 'work',
-                beforeEnter() {
-                    console.log('Barba: Entering Work');
-                    initWorkGrid();
-                }
-            },
-            {
-                namespace: 'about',
-                beforeEnter() {
-                    console.log('Barba: Entering About');
-                }
-            },
-            {
-                namespace: 'contact',
-                beforeEnter() {
-                    console.log('Barba: Entering Contact');
-                }
-            }
+            { namespace: 'home' },
+            { namespace: 'work' },
+            { namespace: 'about' },
+            { namespace: 'contact' }
         ]
-    });
-
-    barba.hooks.before(() => {
-        // Stop Lenis during transition if needed
-        lenis.stop();
     });
 
     barba.hooks.after(() => {
         lenis.start();
-        lenis.resize();
-        window.scrollTo(0, 0);
+        ScrollTrigger.refresh();
     });
 };

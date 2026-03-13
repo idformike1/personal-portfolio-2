@@ -7,9 +7,11 @@ export const initWorkGrid = async () => {
         const projects = await response.json();
         
         gridContainer.innerHTML = projects.map(project => `
-            <div class="work-row" data-id="${project.id}">
-                <h2>${project.title}</h2>
-                <div class="tags">${project.tags.join(' & ')}</div>
+            <div class="work-row magnetic" data-id="${project.id}" data-img="${project.thumbnail}">
+                <div class="work-row-content">
+                    <h2>${project.title}</h2>
+                    <div class="tags">${project.tags.join(' & ')}</div>
+                </div>
             </div>
         `).join('');
     } catch (err) {
