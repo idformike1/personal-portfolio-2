@@ -1,23 +1,24 @@
 {
-  "name": "portfolio-website-2",
-  "version": "1.0.0",
-  "description": "This is a high-fidelity reconstruction of the portfolio website [dennissnellenberg.com](https://dennissnellenberg.com/).",
-  "main": "index.js",
+  "name": "denis-clone",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
-    "@barba/core": "^2.10.3",
+    "@studio-freight/react-lenis": "^0.0.47",
+    "framer-motion": "^12.36.0",
     "gsap": "^3.14.2",
-    "lenis": "^1.3.18"
+    "next": "14.2.35",
+    "react": "^18",
+    "react-dom": "^18",
+    "sass": "^1.98.0"
   },
   "devDependencies": {
-    "vite": "^7.3.1"
+    "eslint": "^8",
+    "eslint-config-next": "14.2.35"
   }
 }
