@@ -1,7 +1,9 @@
-.modalContainer{
+.modalContainer {
     height: 350px;
     width: 400px;
-    position: absolute;
+    position: fixed;
+    top: 0;
+    left: 0;
     background-color: white;
     overflow: hidden;
     pointer-events: none;
@@ -10,34 +12,37 @@
     justify-content: center;
     z-index: 3;
 
-    .modalSlider{
+    .modalSlider {
         height: 100%;
         width: 100%;
         position: absolute;
-        transition: top 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+        // Logic handled by transition: top in JS is replaced by GSAP for parity
 
-        .modal{
+        .modal {
             height: 100%;
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
 
-            img{
-                height: auto;
+            img {
+                height: 250px;
+                width: auto;
             }
         }
     }
 }
 
-.cursor, .cursorLabel{
+.cursor, .cursorLabel {
     width: 80px;
     height: 80px;
     border-radius: 50%;
     background-color: #455ce9;
     color: white;
-    position: absolute;
-    z-index: 3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 4;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,6 +51,6 @@
     pointer-events: none;
 }
 
-.cursorLabel{
+.cursorLabel {
     background-color: transparent;
 }

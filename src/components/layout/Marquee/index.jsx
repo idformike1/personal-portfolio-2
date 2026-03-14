@@ -17,7 +17,7 @@ export default function Marquee() {
     gsap.to(slider.current, {
       scrollTrigger: {
         trigger: document.documentElement,
-        scrub: 0.25,
+        scrub: 0.5,
         start: 0,
         end: window.innerHeight,
         onUpdate: e => direction = e.direction * -1
@@ -37,8 +37,10 @@ export default function Marquee() {
     }
     gsap.set(firstText.current, {xPercent: xPercent})
     gsap.set(secondText.current, {xPercent: xPercent})
-    requestAnimationFrame(animate);
+    
+    // Add velocity logic
     xPercent += 0.1 * direction;
+    requestAnimationFrame(animate);
   }
 
   return (

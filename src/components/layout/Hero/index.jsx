@@ -6,32 +6,15 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './style.module.scss';
 
 export default function Hero() {
-    const background = useRef(null);
-    const container = useRef(null);
-
-    useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-        
-        const timeline = gsap.timeline({
-            scrollTrigger: {
-                trigger: document.documentElement,
-                scrub: true,
-                start: "top top",
-                end: "bottom top"
-            }
-        });
-
-        timeline.to(background.current, {y: 200}, 0);
-    }, []);
-
     return (
-        <div ref={container} className={styles.hero}>
-            <div ref={background} className={styles.background}>
+        <section className={styles.hero}>
+            <div className={styles.background}>
                 <Image 
                     src="/images/hero_portrait.png"
                     fill={true}
                     alt="Hero Portrait"
                     priority={true}
+                    quality={100}
                 />
             </div>
             <div className={styles.content}>
@@ -40,6 +23,6 @@ export default function Hero() {
                     <p>Designer & Developer</p>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }

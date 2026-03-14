@@ -28,14 +28,18 @@ export default function Modal({modal, projects}) {
     let xMoveCursorLabel = gsap.quickTo(cursorLabel.current, "left", {duration: 0.45, ease: "power3"});
     let yMoveCursorLabel = gsap.quickTo(cursorLabel.current, "top", {duration: 0.45, ease: "power3"});
 
+    const moveItems = (x, y) => {
+      xMoveContainer(x)
+      yMoveContainer(y)
+      xMoveCursor(x)
+      yMoveCursor(y)
+      xMoveCursorLabel(x)
+      yMoveCursorLabel(y)
+    }
+
     window.addEventListener('mousemove', (e) => {
-      const { pageX, pageY } = e;
-      xMoveContainer(pageX)
-      yMoveContainer(pageY)
-      xMoveCursor(pageX)
-      yMoveCursor(pageY)
-      xMoveCursorLabel(pageX)
-      yMoveCursorLabel(pageY)
+      const { clientX, clientY } = e;
+      moveItems(clientX, clientY)
     })
   }, [])
 
